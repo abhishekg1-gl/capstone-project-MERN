@@ -1,0 +1,66 @@
+/* src/styles/Navbar.css - Dark Theme */
+
+nav {
+  display: flex;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #1f1f2e;
+  border-bottom: 1px solid #2c2c3a;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+nav a {
+  margin-right: 1rem;
+  padding: 0.5rem 0.75rem;
+  text-decoration: none;
+  color: #e0e0e0;
+  font-weight: 900;
+  border-radius: 4px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+nav a:hover {
+  background-color: #2e2e40;
+  color: #4ea8ff;
+}
+
+nav span {
+  margin-right: 1rem;
+  color: #cccccc;
+  font-size: 0.95rem;
+}
+
+nav button {
+  padding: 0.5rem 1rem;
+  background-color: #007bff;
+  color: #ffffff;
+  font-weight: 500;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+nav button:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav a, nav button {
+    margin: 0.25rem 0;
+  }
+
+  nav span {
+    margin-bottom: 0.5rem;
+  }
+}

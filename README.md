@@ -73,7 +73,7 @@ A step‑by‑step roadmap for building a team‑chat app with MERN (MongoDB, Ex
 
 ---
 
-## ✅ 4. Testing with Postman
+## 🗒️ 4. Testing with Postman
 
 1. Create an environment with variables:  
    - `baseUrl` = `http://localhost:5000/api`  

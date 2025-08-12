@@ -1,5 +1,7 @@
 const express = require('express');
 const router = express.Router();
+
+// Middleware and controller imports
 const auth = require('../middleware/authMiddleware');
 const {
   createChannel,
@@ -8,6 +10,7 @@ const {
   getChannelById
 } = require('../controllers/channelController');
 
+// Channel routes (all protected by auth middleware)
 router.post('/', auth, createChannel);
 router.get('/public', auth, getPublicChannels);
 router.post('/:id/join', auth, joinChannel);

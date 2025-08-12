@@ -3,22 +3,36 @@ import { useNavigate } from 'react-router-dom';
 import api from '../api/axios';
 import '../styles/AuthForm.css';
 
-
 export default function Register() {
+  // Form state for username, email, and password
   const [form, setForm] = useState({ username: '', email: '', password: '' });
   const nav = useNavigate();
 
+  // Update form state on input change
   const handle = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
 
+  // Handle form submission: send data to register endpoint and navigate to login
   const submit = async (e) => {
     e.preventDefault();
-    await api.post('/auth/register', form);
-    nav('/login');
-  };
 
+    try {
+      await api.post('/auth/register', form);
+      nav('/login');
+    } catch (err) {
+      // This pulls the message from backend: res.status(400).json({ message: "..." })
+      const errorMessage = err.response?.data?.message || "Registration failed";
+      alert(errorMessage);
+      setForm({
+        username: "",
+        email: "",
+        password: ""
+      });
+
+    }
+  };
   return (
-     <form className="auth-form" onSubmit={submit}>
+    <form className="auth-form" onSubmit={submit}>
       <h2>Register</h2>
       <input
         name="username"

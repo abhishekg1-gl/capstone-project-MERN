@@ -1,5 +1,4 @@
-/* src/styles/AuthForm.css - Dark Theme */
-
+/* Container for auth forms: centered with padding, background, and shadow */
 .auth-form {
   max-width: 420px;
   margin: 4rem auto;
@@ -15,6 +14,7 @@
   border: 1px solid #2c2c3a;
 }
 
+/* Form title styling */
 .auth-form h2 {
   text-align: center;
   font-size: 1.75rem;
@@ -23,6 +23,7 @@
   color: #ffffff;
 }
 
+/* Inputs with background, border, and smooth focus transition */
 .auth-form input {
   padding: 0.75rem 1rem;
   font-size: 1rem;
@@ -43,6 +44,7 @@
   box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
 }
 
+/* Submit button with hover effect */
 .auth-form button {
   padding: 0.75rem 1rem;
   font-size: 1rem;
@@ -59,6 +61,7 @@
   background-color: #0056b3;
 }
 
+/* Error message styling with fade-out animation */
 .error-message {
   color: #f8d7da;
   background-color: #5a1a1a;
@@ -70,6 +73,7 @@
   animation: fadeOut 0.5s ease-out 4.5s forwards;
 }
 
+/* Fade-out keyframes for error message */
 @keyframes fadeOut {
   to {
     opacity: 0;
@@ -80,7 +84,7 @@
   }
 }
 
-/* Responsive tweaks */
+/* Responsive adjustments for small screens */
 @media (max-width: 480px) {
   .auth-form {
     margin: 2rem 1rem;

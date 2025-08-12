@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import Channel from './pages/Channel';
 import { useAuth } from './context/AuthContext';
 
+// Protect routes so only authenticated users can access
 function ProtectedRoute({ children }) {
   const { token } = useAuth();
   return token ? children : <Navigate to="/login" />;
@@ -17,8 +18,11 @@ export default function App() {
     <>
       <Navbar />
       <Routes>
+        {/* Public routes */}
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+
+        {/* Protected routes */}
         <Route
           path="/"
           element={

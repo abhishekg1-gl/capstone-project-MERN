@@ -10,6 +10,13 @@ export default function Login() {
   const { login } = useAuth();
   const nav = useNavigate();
 
+   useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      nav('/', { replace: true });
+    }
+  }, [nav]);
+
   // Update form state on input change
   const handle = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -20,7 +27,7 @@ export default function Login() {
     try {
       const res = await api.post('/auth/login', form);
       login(res.data.user, res.data.token);
-      nav('/');
+      nav('/',{replace:true});
     } catch (err) {
       setErrorMsg('Invalid email or password');
     }

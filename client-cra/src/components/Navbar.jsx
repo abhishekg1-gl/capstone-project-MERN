@@ -10,8 +10,7 @@ export default function Navbar() {
   const nav = useNavigate(); // Hook to programmatically navigate routes
 
   const [menuOpen, setMenuOpen] = useState(false);
-
-
+  
   // Handle logout button click: call logout and redirect to login page
   const handleLogout = () => {
     logout();

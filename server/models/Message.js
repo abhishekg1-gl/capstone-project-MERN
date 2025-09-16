@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 // Message schema definition
 const messageSchema = new mongoose.Schema({
@@ -8,4 +8,6 @@ const messageSchema = new mongoose.Schema({
   timestamp: { type: Date, default: Date.now } // Time the message was sent
 });
 
-module.exports = mongoose.model('Message', messageSchema);
+const Message = mongoose.model('Message', messageSchema);
+
+export default Message;

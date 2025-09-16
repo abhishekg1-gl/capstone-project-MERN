@@ -10,7 +10,13 @@ import { useAuth } from './context/AuthContext';
 // Protect routes so only authenticated users can access
 function ProtectedRoute({ children }) {
   const { token } = useAuth();
-  return token ? children : <Navigate to="/login" />;
+  return token ? children : <Navigate to="/login" replace />;
+}
+
+// Redirect logged-in users away from login/register
+function PublicRoute({ children }) {
+  const { token } = useAuth();
+  return token ? <Navigate to="/" replace /> : children;
 }
 
 export default function App() {
@@ -19,8 +25,8 @@ export default function App() {
       <Navbar />
       <Routes>
         {/* Public routes */}
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<PublicRoute><Register /></PublicRoute>} />
+        <Route path="/login" element={<PublicRoute><Login /></PublicRoute>} />
 
         {/* Protected routes */}
         <Route
@@ -39,6 +45,8 @@ export default function App() {
             </ProtectedRoute>
           }
         />
+        <Route path="*" element={<Navigate to="/" replace />} />
+
       </Routes>
     </>
   );

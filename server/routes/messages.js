@@ -1,11 +1,11 @@
-const express = require('express');
-const router = express.Router({ mergeParams: true });
+import express from 'express';
+import auth from '../middleware/authMiddleware.js';
+import { getMessages, postMessage } from '../controllers/messageController.js';
 
-const auth = require('../middleware/authMiddleware');
-const { getMessages, postMessage } = require('../controllers/messageController');
+const router = express.Router({ mergeParams: true });
 
 // Message routes for a specific channel (protected by auth)
 router.get('/:id/messages', auth, getMessages);
 router.post('/:id/messages', auth, postMessage);
 
-module.exports = router;
+export default router;

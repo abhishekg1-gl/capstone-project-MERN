@@ -64,6 +64,9 @@ nav button:hover {
 }
 
 @media (max-width: 768px) {
+  nav{
+    min-width: 200px;
+  }
   .menu-toggle {
     display: block;
   }

@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 // Channel schema definition
 const channelSchema = new mongoose.Schema({
@@ -10,4 +10,6 @@ const channelSchema = new mongoose.Schema({
   createdBy:   { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true } // Creator of the channel
 }, { timestamps: true }); // Automatically adds createdAt and updatedAt fields
 
-module.exports = mongoose.model('Channel', channelSchema);
+const Channel = mongoose.model('Channel', channelSchema);
+
+export default Channel;

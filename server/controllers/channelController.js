@@ -1,8 +1,7 @@
-const Channel = require('../models/Channel');
-const User = require('../models/User');
-
+import Channel from '../models/Channel.js';
+import User from '../models/User.js';
 // Create a new channel and add creator as a member
-exports.createChannel = async (req, res) => {
+export const createChannel = async (req, res) => {
   const { name, description } = req.body;
   try {
     const channel = await Channel.create({
@@ -21,13 +20,13 @@ exports.createChannel = async (req, res) => {
 };
 
 // Get list of public channels (excluding members for brevity)
-exports.getPublicChannels = async (req, res) => {
+export const getPublicChannels = async (req, res) => {
   const channels = await Channel.find().select('-members').sort('-createdAt');
   res.json(channels);
 };
 
 // Add current user to channel members and vice versa
-exports.joinChannel = async (req, res) => {
+export const joinChannel = async (req, res) => {
   const { id } = req.params;
   try {
     await Channel.findByIdAndUpdate(id, { $addToSet: { members: req.user.id } });
@@ -39,7 +38,7 @@ exports.joinChannel = async (req, res) => {
 };
 
 // Get channel details including member usernames
-exports.getChannelById = async (req, res) => {
+export const getChannelById = async (req, res) => {
   const channel = await Channel.findById(req.params.id).populate('members', 'username');
   if (!channel) return res.status(404).json({ message: 'Channel not found' });
   res.json(channel);

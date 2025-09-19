@@ -1,7 +1,7 @@
-const Message = require('../models/Message');
+import Message from '../models/Message.js';
 
 // Get all messages for a specific channel, with sender info
-exports.getMessages = async (req, res) => {
+export const getMessages = async (req, res) => {
   const { id: channelId } = req.params;
   const messages = await Message.find({ channelId })
     .populate('sender', 'username')
@@ -10,7 +10,7 @@ exports.getMessages = async (req, res) => {
 };
 
 // Post a new message to a channel
-exports.postMessage = async (req, res) => {
+export const postMessage = async (req, res) => {
   const { id: channelId } = req.params;
   const { content } = req.body;
   try {

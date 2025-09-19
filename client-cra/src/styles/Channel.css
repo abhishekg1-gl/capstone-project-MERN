@@ -75,6 +75,25 @@
   margin-top: 3rem;
 }
 
+.back-button {
+  background-color: #2a2a40;      /* dark card background */
+  color: #eee;                     /* light text */
+  border: 1.5px solid #555577;     /* matching dark border */
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  margin-bottom: 1rem;             /* spacing from message list */
+}
+
+.back-button:hover,
+.back-button:focus {
+  background-color: #3a3a5a;       /* slightly lighter on hover */
+  color: #fff;
+  outline: none;
+}
+
 /* ----------- Mobile responsiveness ----------- */
 @media (max-width: 600px) {
   .channel-container {

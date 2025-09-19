@@ -4,7 +4,8 @@ import {
   createChannel,
   getPublicChannels,
   joinChannel,
-  getChannelById
+  getChannelById,
+  unsubscribeChannel
 } from '../controllers/channelController.js';
 
 const router = express.Router();
@@ -14,5 +15,6 @@ router.post('/', auth, createChannel);
 router.get('/public', auth, getPublicChannels);
 router.post('/:id/join', auth, joinChannel);
 router.get('/:id', auth, getChannelById);
+router.post('/:id/leave', auth, unsubscribeChannel); 
 
 export default router;
